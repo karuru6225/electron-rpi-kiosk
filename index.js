@@ -1,25 +1,26 @@
 const electron = require('electron');
-
 const {app, BrowserWindow} = electron;
+const config = require('./config.js');
 
 let mainWindow;
 
 function createWindow(){
-  mainWindow = new BrowserWindow({
-    width: 800,
-    height: 480,
-    fullscreen: true,
-    frame: false
-  });
+  mainWindow = new BrowserWindow(config.mainWindow);
 
   mainWindow.loadURL(`file://${__dirname}/index.html`);
-  //mainWindow.webContents.openDevTools();
+  //*
+  mainWindow.webContents.openDevTools({
+    mode: 'undocked'
+  });//*/
+  mainWindow.on('resize', ()=>{
+    console.log(mainWindow.getSize());
+  });
+  mainWindow.on('move', ()=>{
+    console.log(mainWindow.getPosition());
+  });
   mainWindow.on('closed', function(){
     mainWindow = null;
   });
-  setInterval(()=>{
-    console.log(mainWindow.getSize());
-  },1000);
 }
 
 app.on('ready', createWindow);
