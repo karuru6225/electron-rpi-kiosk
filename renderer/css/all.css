@@ -102,3 +102,11 @@ div#analog-clock div.transition {
   transition: transform 0.1s ease 0s;
   -webkit-transition: -webkit-transform 0.1s ease 0;
 }
+
+/* 800/155*86/480 */
+#all {
+  width: 865px;
+  height: 480px;
+  margin-left: -32px;
+  transform: scaleX(0.9247);
+}
