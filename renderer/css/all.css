@@ -98,11 +98,6 @@ div#analog-clock div#hour-hand {
   border-radius: 4px;
 }
 
-div#analog-clock div.transition {
-  transition: transform 0.1s ease 0s;
-  -webkit-transition: -webkit-transform 0.1s ease 0;
-}
-
 /* 800/155*86/480 */
 #all {
   width: 865px;

@@ -1,5 +1,4 @@
 setInterval(function(){
-  document.getElementById('main').innerHTML = (new Date()).toLocaleString();
 },200);
 $(function(){
   // 目盛を初期化
@@ -33,37 +32,27 @@ $(function(){
     $thisGrad.appendTo($smallGradContainer);
   }
 
-  var rotateCountScond = 0;
-  var rotateCountMinute = 0;
-  var rotateCountHour = 0;
   var clockFunc = function(){
-    var time = Math.floor((new Date()).getTime() / 1000);
+    var time = Math.floor(Date.now() / 1000);
+
     // 時差を補正
-  time += (60 * 60 * 9);
+    time += (60 * 60 * 9);
 
-  var second = time % 60;
-  if (second == 0) {
-    rotateCountScond ++;
-  }
-  $('#second-hand').css({
-    'transform':'rotate('+((360*rotateCountScond)+(360/60)*second)+'deg)'
-  });
+    var second = time % 60;
+    $('#second-hand').css({
+      'transform':'rotate('+((360/60)*second)+'deg)'
+    });
 
-  var minute = time % (60 * 60);
-  if (minute == 0) {
-    rotateCountMinute ++;
-  }
-  $('#minute-hand').css({
-    'transform':'rotate('+((360*rotateCountMinute)+((360/(60*60))*minute))+'deg)'
-  });
+    var minute = time % (60 * 60);
+    $('#minute-hand').css({
+      'transform':'rotate('+((360/(60*60))*minute)+'deg)'
+    });
 
-  var hour = time % (60 * 60 * 24);
-  if (hour == 0) {
-    rotateCountHour ++;
-  }
-  $('#hour-hand').css({
-    'transform':'rotate('+((360*rotateCountHour)+((360/(60*60*12))*hour))+'deg)'
-  });
-};
-setInterval(clockFunc, 1000);
+    var hour = time % (60 * 60 * 24);
+    $('#hour-hand').css({
+      'transform':'rotate('+((360/(60*60*12))*hour)+'deg)'
+    });
+    $('#main').html((new Date()).toLocaleString());
+  };
+  setInterval(clockFunc, 50);
 });
