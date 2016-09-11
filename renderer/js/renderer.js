@@ -54,5 +54,5 @@ $(function(){
     });
     $('#main').html((new Date()).toLocaleString());
   };
-  setInterval(clockFunc, 50);
+  setInterval(clockFunc, 200);
 });
