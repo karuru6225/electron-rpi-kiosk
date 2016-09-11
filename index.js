@@ -7,8 +7,8 @@ let mainWindow;
 function createWindow(){
   mainWindow = new BrowserWindow(config.mainWindow);
 
-  mainWindow.loadURL(`file://${__dirname}/index.html`);
-  //*
+  mainWindow.loadURL(`file://${__dirname}/renderer/index.html`);
+  /*
   mainWindow.webContents.openDevTools({
     mode: 'undocked'
   });//*/

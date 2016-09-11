@@ -1,0 +1,104 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+#main {
+  padding: 10px 20px;
+  font-size: 88px;
+}
+
+div#analog-clock div#base{
+  width: 300px;
+  height: 300px;
+  background-color: black;
+  border-radius: 150px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.75);
+  margin-left: 20px;
+}
+
+div#analog-clock div#base-white {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  background-color: white;
+  border-radius: 140px;
+  top: 10px;
+  left: 10px;
+}
+
+div#analog-clock div.big-grad {
+  position: absolute;
+  width: 2px;
+  height: 10px;
+  top: 0px;
+  left: 139px;
+  background-color: rgba(0, 0, 0, 0.75);
+  -webkit-transform-origin: 1px 140px;
+  -moz-transform-origin: 1px 140px;
+}
+
+div#analog-clock div.small-grad {
+  position: absolute;
+  width: 2px;
+  height: 3px;
+  top: 0px;
+  left: 139px;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-transform-origin: 1px 140px;
+  -moz-transform-origin: 1px 140px;
+}
+
+div#analog-clock div.number {
+  position: absolute;
+  width: 30px;
+  height: 20px;
+  top: 12px;
+  left: 125px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  -webkit-transform-origin: 15px 128px;
+  -moz-transform-origin: 15px 128px;
+}
+
+div#analog-clock div#second-hand {
+  position: absolute;
+  width: 2px;
+  height: 140px;
+  top: 10px;
+  left: 139px;
+  background-color: black;
+  -webkit-transform-origin: 1px 130px;
+  -moz-transform-origin: 1px 130px;
+}
+
+div#analog-clock div#minute-hand {
+  position: absolute;
+  width: 4px;
+  height: 125px;
+  top: 25px;
+  left: 138px;
+  background-color: #222;
+  -webkit-transform-origin: 2px 115px;
+  -moz-transform-origin: 2px 115px;
+  border-radius: 2px;
+}
+
+div#analog-clock div#hour-hand {
+  position: absolute;
+  width: 8px;
+  height: 100px;
+  top: 50px;
+  left: 137px;
+  background-color: #444;
+  -webkit-transform-origin: 4px 90px;
+  -moz-transform-origin: 4px 90px;
+  border-radius: 4px;
+}
+
+div#analog-clock div.transition {
+  transition: transform 0.1s ease 0s;
+  -webkit-transition: -webkit-transform 0.1s ease 0;
+}
