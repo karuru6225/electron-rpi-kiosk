@@ -23,6 +23,9 @@ $(function(){
     $innerNumber.appendTo($thisNumner);
     $thisNumner.appendTo($numberContainer);
   }
+  function getMinOffset(){
+    return Math.floor(Math.random() * 8);
+  }
   var $smallGradContainer = $('#small-grad-container');
   for (var i = 0; i < 60; i++) {
     var $thisGrad = $('<div class="small-grad">');
@@ -31,6 +34,8 @@ $(function(){
     });
     $thisGrad.appendTo($smallGradContainer);
   }
+
+  var minOffset = getMinOffset();
 
   var clockFunc = function(){
     var time = Math.floor(Date.now() / 1000);
@@ -43,16 +48,20 @@ $(function(){
       'transform':'rotate('+((360/60)*second)+'deg)'
     });
 
-    var minute = time % (60 * 60);
+    var minute = (time + minOffset*60) % (60 * 60);
     $('#minute-hand').css({
       'transform':'rotate('+((360/(60*60))*minute)+'deg)'
     });
 
     var hour = time % (60 * 60 * 24);
+    if(hour == 0){
+      minOffset = getMinOffset();
+    }
     $('#hour-hand').css({
       'transform':'rotate('+((360/(60*60*12))*hour)+'deg)'
     });
-    $('#main').html((new Date()).toLocaleString());
+    $('#main').html( (new Date( (time+minOffset*60-(60*60*9)) * 1000 )).toLocaleString().replace(' ','<br>') );
+    $('#unix').html( Math.floor(Date.now()/1000) );
   };
   setInterval(clockFunc, 200);
 });
